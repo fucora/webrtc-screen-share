@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebRTC 1 to 1 handshake V2</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #remote-video {
+      border: 1px solid black;
+      height: 100vh;
+      width: 100vw;
+    }
+  </style>
+</head>
+<body>
+  <!-- <button type="button" onclick="startVideo();">Start video</button>
+  <button type="button" onclick="stopVideo();">Stop video</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="button" onclick="connect();">Connect</button>
+  <button type="button" onclick="hangUp();">Hang Up</button>
+  <br /> -->
+  <div>
+    <!-- iosでvideoタグを自動再生する為に muted, playsinline 属性を追加 -->
+    <video id="remote-video" autoplay muted playsinline></video>
+  </div>
+
+  <!-- <p>
+    SDP to send:<br />
+    <textarea id="text-for-send-sdp" rows="5" cols="100" disabled="1">SDP to send</textarea>
+  </p>
+  <p>
+    SDP to receive:<br />
+    <textarea id="text-for-receive-sdp" rows="5" cols="100"></textarea><br />
+    <button type="button" onclick="onSDP();">Receive SDP</button>
+  </p>
+
+  <p>
+    ICE Candidate to send:<br />
+    <textarea id="text-for-send-ice" rows="5" cols="100" disabled="1" onclick="this.focus(); this.select();">ICE Candidate to send</textarea>
+  </p>
+  <p>
+    ICE Candidates to receive:<br />
+    <textarea id="text-for-receive-ice" rows="5" cols="100"></textarea><br />
+    <button type="button" onclick="onICE();">Receive ICE Candidates</button>
+  </p> -->
+  <script src="../build/front/answer.js"></script>
+</body>
+</html>
