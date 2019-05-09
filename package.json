@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "start": "node src/server/sailing.js",
+    "start": "node ./src/server/signaling.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
