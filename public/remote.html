@@ -19,48 +19,11 @@
 <body>
   <a-scene>
     <a-assets>
-      <!-- iosでvideoタグを自動再生する為に muted, playsinline 属性を追加 -->
-      <!-- <video id="remote-video" autoplay muted playsinline></video> -->
     </a-assets>
     <a-entity id="video-holder"></a-entity>
-    <!-- <a-video src="#remote-video" width="16" height="9" position="0 5 -10"></a-video> -->
     <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
     <a-sky color="#ECECEC"></a-sky>
-    <!-- <a-box position="-1 0 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-    <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-    <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-    <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-    <a-sky color="#ECECEC"></a-sky> -->
   </a-scene>
-  <!-- <button type="button" onclick="startVideo();">Start video</button>
-  <button type="button" onclick="stopVideo();">Stop video</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <button type="button" onclick="connect();">Connect</button>
-  <button type="button" onclick="hangUp();">Hang Up</button>
-  <br /> -->
-  <!-- <div> -->
-    <!-- <video id="remote-video" autoplay muted playsinline></video> -->
-  <!-- </div> -->
-
-  <!-- <p>
-    SDP to send:<br />
-    <textarea id="text-for-send-sdp" rows="5" cols="100" disabled="1">SDP to send</textarea>
-  </p>
-  <p>
-    SDP to receive:<br />
-    <textarea id="text-for-receive-sdp" rows="5" cols="100"></textarea><br />
-    <button type="button" onclick="onSDP();">Receive SDP</button>
-  </p>
-
-  <p>
-    ICE Candidate to send:<br />
-    <textarea id="text-for-send-ice" rows="5" cols="100" disabled="1" onclick="this.focus(); this.select();">ICE Candidate to send</textarea>
-  </p>
-  <p>
-    ICE Candidates to receive:<br />
-    <textarea id="text-for-receive-ice" rows="5" cols="100"></textarea><br />
-    <button type="button" onclick="onICE();">Receive ICE Candidates</button>
-  </p> -->
   <script src="../build/front/answer.js"></script>
 </body>
 </html>

@@ -26,9 +26,12 @@ const createVideo = () => {
     console.log('loaded asset data');
   })
 
+  // iosでvideoタグを自動再生する為に muted, playsinline 属性を追加
   remoteVideo.setAttribute('id', 'remote-video');
   remoteVideo.setAttribute('autoplay', 'true');
   remoteVideo.setAttribute('src', '');
+  remoteVideo.setAttribute('muted', '');
+  remoteVideo.setAttribute('playsinline', '');
   assets.appendChild(remoteVideo);
 
   remoteVideo.addEventListener('loadeddata', () => {
@@ -36,10 +39,7 @@ const createVideo = () => {
     aVideo.setAttribute('src', `#remote-video`);
   });
 
-  // const remoteVideo = <HTMLVideoElement>document.getElementById('remote-video');
   const reciever = new ScreenReciever(remoteVideo);
-
-  // remoteVideo.srcObject = stream;
 }
 
 createVideo();
