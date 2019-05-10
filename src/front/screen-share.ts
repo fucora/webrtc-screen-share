@@ -1,19 +1,35 @@
+import io from 'socket.io-client';
+
 export default abstract class ScreenShare {
-  protected ws: WebSocket;
+  protected socket: SocketIOClient.Socket;
+  // protected ws: WebSocket;
   protected abstract peerConnection?: RTCPeerConnection;
 
-  protected abstract onMessage(event: MessageEvent): void;
+  protected abstract onMessage(data: string): void;
 
   constructor() {
-    this.ws = new WebSocket(this.WS_URL);
-    this.ws.onopen = (evt) => {
-      console.log('ws open()');
-    };
-    this.ws.onerror = (err) => {
-      console.error('ws onerror() ERR:', err);
-    };
+    this.socket = io(this.WS_URL, {
+      rejectUnauthorized: false
+    });
 
-    this.ws.onmessage = (event: MessageEvent) => this.onMessage(event);
+    this.socket.on('error', (error: Error) => {
+      console.error('ws onerror() ERR:', error.message);
+    });
+
+    this.socket.on('message', (data: string) => this.onMessage(data));
+
+    // this.socket.onopen = (evt) => {
+    //   console.log('ws open()');
+    // }
+    // this.ws = new WebSocket(this.WS_URL);
+    // this.ws.onopen = (evt) => {
+    //   console.log('ws open()');
+    // };
+    // this.ws.onerror = (err) => {
+    //   console.error('ws onerror() ERR:', err);
+    // };
+
+    // this.ws.onmessage = (event: MessageEvent) => this.onMessage(event);
   }
 
   protected prepareNewConnection(): RTCPeerConnection {
@@ -45,7 +61,8 @@ export default abstract class ScreenShare {
     console.log('---sending sdp ---');
 
     const message = JSON.stringify(sessionDescription);
-    this.ws.send(message);
+    // this.ws.send(message);
+    this.socket.send(message);
   }
 
   get WS_URL(): string {
