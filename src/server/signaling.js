@@ -9,9 +9,7 @@ console.log(process.env.NODE_EXTRA_CA_CERTS);
 
 const server = https.createServer({
   cert: fs.readFileSync(`${SSL_DIRECTORY}/cert.pem`),
-  key: fs.readFileSync(`${SSL_DIRECTORY}/key.pem`),
-  requestCert: true,
-  rejectUnauthorized: false
+  key: fs.readFileSync(`${SSL_DIRECTORY}/key.pem`)
 });
 const wss = new WebSocket.Server({ server: server });
 
