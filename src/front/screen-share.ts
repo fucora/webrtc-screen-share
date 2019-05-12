@@ -49,6 +49,6 @@ export default abstract class ScreenShare {
   }
 
   get WS_URL(): string {
-    return `ws://${location.hostname}:3001/`;
+    return `wss://${location.hostname}:3001/`;
   }
 }
