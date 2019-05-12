@@ -4,9 +4,9 @@ export default class ScreenSender extends ScreenShare {
   protected peerConnection?: RTCPeerConnection;
   private stream?: MediaStream;
 
-  protected onMessage(data: string) {
-    console.log('ws onmessage() data:', data);
-    let message = JSON.parse(data);
+  protected onMessage(event: MessageEvent) {
+    console.log('ws onmessage() data:', event.data);
+    let message = JSON.parse(<string>event.data);
     if (message.type === 'answer') {
       console.log('Received answer ...');
       const answer = new RTCSessionDescription(message);

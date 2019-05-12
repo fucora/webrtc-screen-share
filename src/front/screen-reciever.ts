@@ -10,9 +10,9 @@ export default class ScreenReciever extends ScreenShare {
     this.remoteVideo = video;
   }
 
-  protected onMessage = (data: string) => {
-    console.log('ws onmessage() data:', data);
-    let message = JSON.parse(data);
+  protected onMessage = (event: MessageEvent) => {
+    console.log('ws onmessage() data:', event.data);
+    let message = JSON.parse(<string>event.data);
     if (message.type === 'offer') {
       console.log('Received offer ...');
       const offer = new RTCSessionDescription(message);
