@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>WebRTC 1 to 1 handshake V2</title>
   <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
@@ -16,14 +17,25 @@
     }
   </style>
 </head>
+
 <body>
   <a-scene>
     <a-assets>
+      <img id="power-icon" src="../static/images/power-icon.png" />
     </a-assets>
-    <a-entity id="video-holder"></a-entity>
-    <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-    <a-sky color="#ECECEC"></a-sky>
+    <a-entity id="video-holder" color="#7BC8A4"></a-entity>
+    <a-entity geometry="primitive: plane" material="src: #power-icon"></a-entity>
+    <a-box position="0 4.25 -11" rotation="0 0 0" width="18" height="10.5" depth="2.5" color="#000"></a-box>
+    <a-cylinder radius=".35" height="1" position="0 0 -4.3" rotation="0 0 0" color="#000"></a-cylinder>
+    <a-box position="1 -1 -4.5" rotation="0 45 0" width="1" height="0.1" depth="3" color="#000"></a-box>
+    <a-box position="-1 -1 -4.5" rotation="0 -45 0" width="1" height="0.1" depth="3" color="#000"></a-box>
+    <a-box position="3.7 0.42 -4.5" rotation="0 0 0" width="0.1" height="0.2" depth="0.03" color="#4169e1"></a-box>
+    <a-image position="3.4 0.48 -4.5" src="../static/images/power-icon.png" width="0.12" height="0.12"></a-image>
+    <a-image position="3.0 0.48 -4.5" src="../static/images/menu.png" width="0.3" height="0.08"></a-image>
+    <a-sky src=" ../static/images/bungalow.jpg" rotation="0 -84 0">
+    </a-sky>
   </a-scene>
   <script src="../build/front/answer.js"></script>
 </body>
+
 </html>
