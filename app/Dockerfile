@@ -35,8 +35,15 @@ RUN git clone https://github.com/Linuxbrew/brew.git .linuxbrew
 # mkcertをインストール
 RUN brew install mkcert
 
-USER root
-
 # ローカルに擬似認証局を生成
-# ENV CAROOT /app/public/ca
-# RUN mkcert -install
+ARG host_ip
+USER root
+ENV CAROOT /etc/ssl/ca
+RUN mkdir -p /etc/ssl/ca \
+    && mkcert -install \
+    && mkcert -cert-file /etc/ssl/cert.pem -key-file /etc/ssl/key.pem $host_ip ::1
+
+# 依存パッケージをインストール
+WORKDIR /app
+COPY package.json /app/
+RUN npm install
