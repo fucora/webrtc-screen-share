@@ -1,5 +1,8 @@
 const fs = require('fs');
-const https = require('https');
+const express = require('express');
+const app = express();
+// const https = require('https');
+const http = require('http');
 const WebSocket = require('ws');
 
 const PORT = 3001;
@@ -7,11 +10,16 @@ const SSL_DIRECTORY = __dirname+'/../../ssl';
 
 console.log(process.env.NODE_EXTRA_CA_CERTS);
 
-const server = https.createServer({
-  cert: fs.readFileSync(`${SSL_DIRECTORY}/cert.pem`),
-  key: fs.readFileSync(`${SSL_DIRECTORY}/key.pem`)
-});
+const server = new http.createServer({}, app);
+
+// const server = https.createServer({
+//   // cert: fs.readFileSync(`${SSL_DIRECTORY}/cert.pem`),
+//   // key: fs.readFileSync(`${SSL_DIRECTORY}/key.pem`)
+// }, app);
 const wss = new WebSocket.Server({ server: server });
+
+console.log(__dirname + '/../../public');
+app.use(express.static(__dirname + '/../../public'));
 
 wss.on('connection', function(ws) {
   console.log('-- websocket connected --');
