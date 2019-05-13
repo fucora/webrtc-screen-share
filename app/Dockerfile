@@ -38,4 +38,5 @@ RUN brew install mkcert
 USER root
 
 # ローカルに擬似認証局を生成
-RUN mkcert -install
+# ENV CAROOT /app/public/ca
+# RUN mkcert -install

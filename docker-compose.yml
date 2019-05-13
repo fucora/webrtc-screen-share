@@ -3,8 +3,12 @@ version: '3'
 services:
   app:
     build: app/
-    command: bash -c "npm install && npm run build && npm run generate:certificate && npm run start:app-server"
+    tty: true
+    # command: bash -c "npm install && npm run build && npm run start:app-server"
     volumes:
       - ./app:/app
+    # environment:
+    #   - CAROOT=/app/public/ca
+    #   - NODE_EXTRA_CA_CERTS=/app/public/ca/rootCA.pem
     ports:
       - "3001:3001"
