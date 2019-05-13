@@ -1,14 +1,12 @@
 const fs = require('fs');
 const express = require('express');
 const app = express();
-// const https = require('https');
+const https = require('https');
 const http = require('http');
 const WebSocket = require('ws');
 
 const PORT = 3001;
 const SSL_DIRECTORY = __dirname+'/../../ssl';
-
-console.log(process.env.NODE_EXTRA_CA_CERTS);
 
 const server = new http.createServer({}, app);
 
