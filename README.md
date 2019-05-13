@@ -21,21 +21,6 @@ $ docker-compose up -d
 3. 設定からプロファイルをインストール
 4. 設定 > 一般 > 情報 > 証明書信頼設定 で「ルート証明書を全面的に信頼する」をONにする
 
-## サーバーの起動
-
-### webサーバー
-
-```
-$ npm run start:web-server
-```
-
-### アプリケーションサーバー
-
-```
-$ export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem" # 擬似的なルート認証局を使う為の設定
-$ npm run start:app-servert
-```
-
 ## モーションセンサーのアクセス許可
 
 iOS12.2 よりモーションセンサーへのアクセスがデフォルトで禁止されている。

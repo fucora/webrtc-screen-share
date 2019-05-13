@@ -7,8 +7,7 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "generate:certificate": "./ssl/generate-certificate.sh",
-    "start:web-server": "ws --https",
-    "start:app-server": "node ./src/server/signaling.js",
+    "start": "node ./src/server/signaling.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

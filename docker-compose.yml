@@ -6,7 +6,7 @@ services:
       context: app/
       args:
         host_ip: "${HOST_IP}"
-    command: bash -c "npm run build && npm run start:app-server"
+    command: bash -c "npm run build && npm run start"
     volumes:
       - ./app:/app
       - /app/node_modules
