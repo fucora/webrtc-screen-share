@@ -14,7 +14,7 @@ const server = https.createServer({
 }, app);
 const wss = new WebSocket.Server({ server: server });
 
-app.use(express.static(__dirname + '/../../public'));
+app.use(express.static(__dirname + '/../../views'));
 app.use('/build', express.static(__dirname + '/../../build'));
 app.use('/ca', express.static('/etc/ssl/ca'));
 
