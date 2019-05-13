@@ -3,9 +3,7 @@ version: '3'
 services:
   app:
     build: app/
-    user: root
-    tty: true
-    # command: /bin/bash
+    command: bash -c "npm install && npm run build && npm run generate:certificate && npm run start:app-server"
     volumes:
       - ./app:/app
     ports:

@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
+    "generate:certificate": "mkcert -cert-file ssl/cert.pem -key-file ssl/key.pem 0.0.0.0 ::1",
     "start:web-server": "ws --https",
     "start:app-server": "node ./src/server/signaling.js",
     "test": "echo \"Error: no test specified\" && exit 1"

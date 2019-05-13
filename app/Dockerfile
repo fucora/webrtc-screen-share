@@ -35,12 +35,7 @@ RUN git clone https://github.com/Linuxbrew/brew.git .linuxbrew
 # mkcertをインストール
 RUN brew install mkcert
 
-RUN mkdir /app
-WORKDIR /app
+USER root
 
-# 自己L証明書を生成
-# RUN mkcert -install
-# RUN mkcert 0.0.0.0
-
-RUN npm install \\
-    && npm run build
+# ローカルに擬似認証局を生成
+RUN mkcert -install
