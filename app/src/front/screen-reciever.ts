@@ -46,6 +46,7 @@ export default class ScreenReciever extends ScreenShare {
     video.srcObject = stream;
 
     try {
+      video.setAttribute('muted','muted');
       video.play();
     } catch(err) {
       alert(err);
