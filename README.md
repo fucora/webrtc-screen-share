@@ -4,11 +4,11 @@ WebVRで画面共有
 
 ## Getting Started
 
-SSL証明書を作成するときに指定したドメインとアクセス先のドメインを一致させる必要がある。  
-`HOST_IP` に LAN 内の自身のPCのIPアドレスを指定してください。
+SSL証明書を作成するときに指定したドメインとアクセス先のドメインを一致させる必要がある。
+`SCREEN_SHARE_HOST` に LAN 内の自身のPCのIPアドレスを指定してください。
 
 ```
-$ export HOST_IP=$(ifconfig en0 | awk '/inet / {print $2}')
+$ export SCREEN_SHARE_HOST=$(ifconfig en0 | awk '/inet / {print $2}')
 $ docker-compose up -d
 ```
 
@@ -21,7 +21,7 @@ $ docker-compose up -d
 
 ## モーションセンサーのアクセス許可
 
-iOS12.2 よりモーションセンサーへのアクセスがデフォルトで禁止されている。  
+iOS12.2 よりモーションセンサーへのアクセスがデフォルトで禁止されている。
 ユーザが明示的にアクセスを許可する設定をする必要がある。
 
 設定 > Safari > プライバシーとセキュリティ > モーションと画面の向きのアクセスを許可 を ON にする

@@ -36,12 +36,12 @@ RUN git clone https://github.com/Linuxbrew/brew.git .linuxbrew
 RUN brew install mkcert
 
 # ローカルに擬似認証局を生成
-ARG host_ip
+ARG host
 USER root
 ENV CAROOT /etc/ssl/ca
 RUN mkdir -p /etc/ssl/ca \
     && mkcert -install \
-    && mkcert -cert-file /etc/ssl/cert.pem -key-file /etc/ssl/key.pem $host_ip ::1
+    && mkcert -cert-file /etc/ssl/cert.pem -key-file /etc/ssl/key.pem $host ::1
 
 # 依存パッケージをインストール
 WORKDIR /app
