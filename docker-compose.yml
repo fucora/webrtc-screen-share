@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: app/
+      args:
+        host: "${SCREEN_SHARE_HOST}"
+    command: bash -c "npm run build && npm run start"
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    environment:
+      - NODE_EXTRA_CA_CERTS=/etc/ssl/ca/rootCA.pem
+    ports:
+      - "3001:3001"

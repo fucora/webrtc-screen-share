@@ -2,58 +2,26 @@
 
 WebVRで画面共有
 
-## Installation
+## Getting Started
+
+SSL証明書を作成するときに指定したドメインとアクセス先のドメインを一致させる必要がある。  
+`SCREEN_SHARE_HOST` に LAN 内の自身のPCのIPアドレスを指定してください。
 
 ```
-$ npm install && npm run build
-```
-
-## SSL証明書を発行
-
-httpsアクセスの為に事前に証明書を発行します。（ここの手順は自動化する予定）
-証明書の発行に [FiloSottile/mkcert](https://github.com/FiloSottile/mkcert) を利用します。
-
-### mkcert のインストール
-
-```
-$ brew install mkcert
-```
-
-### 証明書の発行
-
-```
-$ mkcert -install
-$ mkcert 0.0.0.0 <自身のPCのIPアドレス> ::1
-$ mv xxxx-key.pem ssl/key.pem
-$ mv xxxx.pem ssl/cert.pem
+$ export SCREEN_SHARE_HOST=$(ifconfig en0 | awk '/inet / {print $2}')
+$ docker-compose up -d
 ```
 
 ### iphoneに証明書をインストール
 
-1. `mkcert -CAROOT` で表示されるディレクトリにある `rootCA.pem` をメール or AirDrop等でiPhoneに送信
-2. 送信されたファイルを開く
-3. 設定 からプロファイルをインストール
+1. TOPページを表示
+2. 「ルート証明書をダウンロード」をクリック
+3. 設定からプロファイルをインストール
 4. 設定 > 一般 > 情報 > 証明書信頼設定 で「ルート証明書を全面的に信頼する」をONにする
-
-※ Gmailで証明書を開く場合は Gmailアプリからは正常に開けないので、Safari などから Gmail を開いてファイルをダウンロードしてください。
-## サーバーの起動
-
-### webサーバー
-
-```
-$ npm run start:web-server
-```
-
-### アプリケーションサーバー
-
-```
-$ export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem" # 擬似的なルート認証局を使う為の設定
-$ npm run start:app-servert
-```
 
 ## モーションセンサーのアクセス許可
 
-iOS12.2 よりモーションセンサーへのアクセスがデフォルトで禁止されている。
+iOS12.2 よりモーションセンサーへのアクセスがデフォルトで禁止されている。  
 ユーザが明示的にアクセスを許可する設定をする必要がある。
 
 設定 > Safari > プライバシーとセキュリティ > モーションと画面の向きのアクセスを許可 を ON にする
