@@ -43,3 +43,5 @@ const createVideo = () => {
 }
 
 createVideo();
+
+document.body.requestFullscreen();
