@@ -17,10 +17,11 @@ const wss = new WebSocket.Server({ server: server });
 app.use(express.static(__dirname + '/../../views'));
 app.use('/build', express.static(__dirname + '/../../build'));
 app.use('/ca', express.static('/etc/ssl/ca'));
+app.use('/images', express.static(__dirname + '/../../static/images'));
 
-wss.on('connection', function(ws) {
+wss.on('connection', function (ws) {
   console.log('-- websocket connected --');
-  ws.on('message', function(message) {
+  ws.on('message', function (message) {
     wss.clients.forEach(function each(client) {
       if (isSame(ws, client)) {
         console.log('- skip sender -');
