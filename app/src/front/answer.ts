@@ -30,3 +30,9 @@ const createVideo = () => {
 }
 
 createVideo();
+
+document.body.addEventListener('keypress', (e) => {
+  if(e.keyCode === 13) {
+    document.body.classList.toggle('fadeout-video');
+  }
+})
