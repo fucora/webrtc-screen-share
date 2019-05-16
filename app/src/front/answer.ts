@@ -44,12 +44,4 @@ const createVideo = () => {
 
 createVideo();
 
-const fullscreenIconBox = document.getElementsByClassName('fullscreen-icon-box')[0];
-fullscreenIconBox.addEventListener('click', () => {
-  const body: any = document.body;
-  if(body.requestFullscreen) {
-    document.body.requestFullscreen();
-  } else if(body.webkitRequestFullscreen) {
-    body.webkitRequestFullscreen();
-  }
-});
+document.body.requestFullscreen();

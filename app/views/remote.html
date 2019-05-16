@@ -16,35 +16,13 @@
       height: 100vh;
       width: 100vw;
     }
-
-    .icon-box {
-      background-color: rgba(0,0,0,0.35);
-      box-sizing: border-box;
-      bottom: 91px;
-      cursor: pointer;
-      padding: 8px;
-      position: absolute;
-    }
-
-    .icon-box:hover {
-      background-color: #666;
-      cursor: pointer;
-    }
-
-    .fullscreen-icon-box {
-      height: auto;
-      min-width: 40px;
-      padding-bottom: 3px;
-      right: 29px;
-      width: 4vw;
-    }
   </style>
 </head>
 
 <body>
   <a-scene>
     <a-assets>
-      <img id="power-icon" src="/images/power-icon.png"/>
+      <img id="power-icon" src="/images/power-icon.png" />
     </a-assets>
     <a-entity id="video-holder"></a-entity>
     <a-entity geometry="primitive: plane" material="src: #power-icon"></a-entity>
@@ -66,9 +44,6 @@
       <a-entity leap-hand="hand: right"></a-entity>
     </a-entity>
   </a-scene>
-  <div class="icon-box fullscreen-icon-box">
-    <img src="/images/icons/fullscreen.svg" width="auto" height="auto"/>
-  </div>
   <script src="/build/front/answer.js"></script>
 </body>
 
